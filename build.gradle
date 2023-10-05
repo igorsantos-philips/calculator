@@ -12,7 +12,23 @@ java {
 }
 
 repositories {
-	mavenCentral()
+    mavenLocal()
+    maven {
+        name 'nexus'
+        url "http://repo.portal.whebdc.com.br/content/groups/public/"
+        allowInsecureProtocol = true
+    }
+    maven {
+        name 'nexus-releases'
+        url "http://repo.portal.whebdc.com.br/content/repositories/releases/"
+        allowInsecureProtocol = true
+    }
+    maven {
+        name 'nexus-snapshots'
+        url "http://repo.portal.whebdc.com.br/content/repositories/snapshots/"
+        allowInsecureProtocol = true
+    }
+    mavenCentral()	    
 }
 
 dependencies {
