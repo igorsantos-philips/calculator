@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public final class CalculatorApplication {
 
-    private CalculatorApplication() {
+    protected CalculatorApplication() {
     }
 
-    public static void main(final String[] args) {
+    public static void main(final String... args) {
         SpringApplication.run(CalculatorApplication.class, args);
     }
 }
