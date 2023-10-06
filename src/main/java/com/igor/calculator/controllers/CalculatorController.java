@@ -8,21 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.igor.calculator.services.Calculator;
 
 @RestController
-
 class CalculatorController {
 
 	@Autowired
-
 	private Calculator calculator;
-
+	private static final String constant = "The result is ";
 	@RequestMapping("/sum")
-
-	String sum(@RequestParam("a") Integer a,
-
-			@RequestParam("b") Integer b) {
-
-		return String.valueOf(calculator.sumInegerNumbers(a, b));
-
+	String sum(@RequestParam("a") Integer a, @RequestParam("b") Integer b) {
+		return constant+String.valueOf(calculator.sumInegerNumbers(a, b));
 	}
-
 }

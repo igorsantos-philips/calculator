@@ -26,5 +26,14 @@
 				sh "./gradlew jacocoTestCoverageVerification"
 			}
 		}
+		stage("Static code analysis") {
+			steps {
+				publishHTML (target: [
+					reportDir: 'build/reports/checkstyle/',
+					reportFiles: 'main.html',
+					reportName: "Checkstyle Report"])				
+				sh "./gradlew checkstyleMain"
+			}
+		}		
 	}
 }

@@ -3,6 +3,7 @@ plugins {
   id 'org.springframework.boot' version '2.7.16'
   id 'io.spring.dependency-management' version '1.0.15.RELEASE'
   id 'jacoco'
+  id 'checkstyle'
 }
 
 group = 'com.igor'
@@ -46,6 +47,12 @@ jacocoTestCoverageVerification {
 			}
 		}
 	}
+}
+
+checkstyle {
+	ignoreFailures = false
+	configFile = file("$rootDir/config/checkstyle/checkstyle.xml")
+	checkstyleTest.enabled = false
 }
 
 tasks.named('test') {
