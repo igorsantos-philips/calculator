@@ -8,12 +8,12 @@ import com.igor.calculator.services.Calculator;
 
 @RestController
 public class CalculatorController {
-	@Autowired
-	private Calculator calculator;
-	private static final String constant = "The result is ";
+    @Autowired
+    private Calculator calculator;
+    private static final String CONSTANT = "The result is ";
 
-	@RequestMapping("/sum")
-	String sum(@RequestParam("a") Integer a, @RequestParam("b") Integer b) {
-		return constant + String.valueOf(calculator.sumInegerNumbers(a, b));
-	}
+    @RequestMapping("/sum")
+    public String sum(@RequestParam("a") final Integer a, @RequestParam("b") final Integer b) {
+        return CONSTANT + String.valueOf(calculator.sumInegerNumbers(a, b));
+    }
 }
