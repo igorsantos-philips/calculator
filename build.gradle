@@ -2,6 +2,7 @@ plugins {
   id 'java'
   id 'org.springframework.boot' version '2.7.16'
   id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+  id 'jacoco'
 }
 
 group = 'com.igor'
@@ -35,6 +36,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.13'
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.2 //20% of coverage
+			}
+		}
+	}
 }
 
 tasks.named('test') {
