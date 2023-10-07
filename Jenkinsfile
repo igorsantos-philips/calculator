@@ -1,6 +1,10 @@
  pipeline {
 
     agent any
+
+	triggers {
+	     pollSCM('H/3 * * * *')
+	}   
     environment {
         PROXY_CRED = credentials('PROXY_CREDENTIALS')
     }
@@ -13,9 +17,6 @@
 		}
 	}    
 
-	triggers {
-	     pollSCM('H/3 * * * *')
-	}    
     stages {
         stage("Build") {
             steps {
